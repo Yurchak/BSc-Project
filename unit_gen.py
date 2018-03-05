@@ -36,7 +36,7 @@ shippingCo.append("MCI")  # Maersk
 shippingCo.append("CEO")  # Textainer
 shippingCo.append("MSC")  # Mediterranean
 shippingCo.append("STM")  # CMA-CGM
-
+ 
 wc = [10, 8, 6, 6, 5]  # weights by relative capacity (2014)
 wcsum = sum(wc)
 for i in range(len(wc)):
