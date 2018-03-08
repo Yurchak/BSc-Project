@@ -2,7 +2,7 @@
 
 Choose number of containers and number of externally owned accounts.
 Simulation uses 10 international ports, 5 shipping/leasing companies, and 3 basic container types.
-Container ID is realistic and conforms to ISO 6346, including check digit calculation algorithm.`
+Container ID is realistic and conforms to ISO 6346, including check digit cacompanyTableulation algorithm.`
 
 var rwc = require('random-weighted-choice');
 
@@ -21,7 +21,7 @@ function randomChoice(arr) {
 }
 
 // Key inputs (JS only supports user input in browser)
-var n = 1000; // Number of containers to generate
+var n = 12; // Number of containers to generate
 var a = 10; // Number of externally owned accounts
 
 var location = [];
@@ -43,9 +43,9 @@ for (i = 0; i < wl.length; i++) {
     wl[i] /= wlsum // normalize weights to sum to 1
 }
 
-var lt = [];
+var locationTable = [];
 for (i = 0; i < wl.length; i++) {
-    lt.push({weight: wl[i], id: location[i]})
+    locationTable.push({weight: wl[i], id: location[i]})
 }
 
 var shippingCo = [];
@@ -55,18 +55,18 @@ shippingCo.push("CEO");  // Textainer
 shippingCo.push("MSC");  // Mediterranean
 shippingCo.push("STM");  // CMA-CGM
 
-var wc = [10, 8, 6, 6, 5];  // weights by relative capacity (2014)
-var wcsum = wc.reduce(function (a,b) {return a+b;}, 0);
-for (i = 0; i < wc.length; i++) {
-    wc[i] /= wcsum;
+var companyWeight = [10, 8, 6, 6, 5];  // weights by relative capacity (2014)
+var companyWeightSum = companyWeight.reduce(function (a,b) {return a+b;}, 0);
+for (i = 0; i < companyWeight.length; i++) {
+    companyWeight[i] /= companyWeightSum;
 }
 
-var lc = [];
-for (i = 0; i < wc.length; i++) {
-    lc.push({weight: wc[i], id: shippingCo[i]})
+var companyTable = [];
+for (i = 0; i < companyWeight.length; i++) {
+    companyTable.push({weight: companyWeight[i], id: shippingCo[i]})
 }
 
-var char2num = {  // for calculating check digit after generating container ID
+var char2num = {  // for cacompanyTableulating check digit after generating container ID
         '0': 0, '1': 1, '2': 2, '3': 3, '4': 4, '5': 5, '6': 6, '7': 7, '8': 8,
         '9': 9, 'A': 10, 'B': 12, 'C': 13, 'D': 14, 'E': 15, 'F': 16, 'G': 17,
         'H': 18, 'I': 19, 'J': 20, 'K': 21, 'L': 23, 'M': 24, 'N': 25, 'O': 26,
@@ -114,7 +114,8 @@ var units = []
 for (i = 0; i < n; i++) {
     var self = new Unit();
     self.index = i;
-    var id0 = rwc(lc);
+
+    var id0 = rwc(companyTable);
     var id1 = rwc(catDist);
     var id2 = pad(Math.floor(Math.random()*90000) + 10000,6);
     self.id = id0 + id1 + id2
@@ -130,13 +131,26 @@ for (i = 0; i < n; i++) {
     self.id += String(checkDigit) // append check digit, completing unit ID
 
     self.type = rwc(typeDist);
-    self.location = rwc(lt);
+
+    if (self.type == "Dry storage") {
+        self.picture = "images/dry.jpg";
+    }
+
+    if (self.type == "Flat rack") {
+        self.picture = "images/flatRack.jpg";
+    }
+
+    if (self.type == "Refrigerated") {
+        self.picture = "images/reefer.jpg";
+    }
+    
+    self.location = rwc(locationTable);
     iOwner = Math.floor(acc.length * Math.random())
     self.owner = acc[iOwner];
     unitsOwned[iOwner]++;
-    iUser = Math.floor(acc.length * Math.random())
-    self.user = acc[iUser];
-    unitsUsed[iUser]++;
+    // iUser = Math.floor(acc.length * Math.random())
+    self.user = acc[iOwner];
+    unitsUsed[iOwner]++;
 
     units.push(self)
 
