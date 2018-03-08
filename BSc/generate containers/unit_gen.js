@@ -160,4 +160,9 @@ fs.writeFileSync("units.json", data);
 
 for (i = 0; i < acc.length; i++) {
     console.log("Account", acc[i], "currently owns", unitsOwned[i], "units and uses", unitsUsed[i], "units");
+<<<<<<< HEAD
 }
+=======
+}
+// Test push comment
+>>>>>>> cb27cdd1ebb747a30a060d4daecdc3a6f039e1fb
