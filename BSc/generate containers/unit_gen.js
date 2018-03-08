@@ -21,7 +21,7 @@ function randomChoice(arr) {
 }
 
 // Key inputs (JS only supports user input in browser)
-var n = 12; // Number of containers to generate
+var n = 16; // Number of containers to generate
 var a = 10; // Number of externally owned accounts
 
 var location = [];
@@ -90,8 +90,6 @@ var typeDist = [
 
 function Unit () {};
 
-var n = 1000;
-var a = 10;
 
 // Generate accounts
 
@@ -163,4 +161,3 @@ fs.writeFileSync("units.json", data);
 for (i = 0; i < acc.length; i++) {
     console.log("Account", acc[i], "currently owns", unitsOwned[i], "units and uses", unitsUsed[i], "units");
 }
-// Test push comment
