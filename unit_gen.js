@@ -113,6 +113,7 @@ for (i = 0; i < a; i++) {
 var units = []
 for (i = 0; i < n; i++) {
     var self = new Unit();
+    self.index = i;
     var id0 = rwc(lc);
     var id1 = rwc(catDist);
     var id2 = pad(Math.floor(Math.random()*90000) + 10000,6);
@@ -144,9 +145,6 @@ const fs = require("fs");
 
 let data = JSON.stringify(units, null, 2);
 fs.writeFileSync("units.json", data);
-
-//console.log(units)
-console.log(units[0])
 
 for (i = 0; i < acc.length; i++) {
     console.log("Account", acc[i], "currently owns", unitsOwned[i], "units and uses", unitsUsed[i], "units");
