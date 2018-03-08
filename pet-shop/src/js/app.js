@@ -27,7 +27,7 @@ App = {
   initWeb3: function() {
 
     // Is there an injected we3 instance?
-    if (typeof wen3 !== 'undefined') {
+    if (typeof web3 !== 'undefined') {
       App.web3Provider = web3.currentProvider;
     }
     else {
@@ -97,7 +97,7 @@ App = {
         console.log(error);
       }
 
-      var account = accouts[0];
+      var account = accounts[0];
 
       // where does the 'deployed' come from?
       App.contracts.Adoption.deployed().then(function(instance) {
