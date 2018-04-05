@@ -1,19 +1,23 @@
 pragma solidity ^0.4.17;
 
 contract Rent {
-	address[16] public users;
+    address[16] public users;
 
-	function rent(uint containerId) public returns (uint) {
-		require(containerId >= 0 && containerId <= 15);
+    // function submitContainer(uint serial, dataHash, location, owner) public returns (uint) {
+    // 		//test
+    // },
 
-		users[containerId] = msg.sender;
+    function rentContainer(uint containerId) public returns (uint) {
+        require(containerId >= 0 && containerId <= 15);
 
-		return containerId;
-	}
-		
-	// Retrieving the users
-	function getUsers() public view returns (address[16]) {
-		return users;
-	}
+        users[containerId] = msg.sender;
+
+        return containerId;
+    }
+            
+    // Retrieving the users
+    function getUsers() public view returns (address[16]) {
+        return users;
+    }
 
 }

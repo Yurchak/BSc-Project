@@ -22,7 +22,6 @@ App = {
     return App.initWeb3();
   },
 
-  // Is 'initWeb3: function()' the same as 'function initWeb3()' ...?
   initWeb3: function() {
 
     // Is there an injected web3 instance?
@@ -44,7 +43,7 @@ App = {
       var RentArtifact = data;
       App.contracts.Rent = TruffleContract(RentArtifact);
     
-      // Set the provider for our contract
+      // Set the provider for our contract: Link our contract to the node within Metamask, so we can interact with it through Metamask.
       App.contracts.Rent.setProvider(App.web3Provider);
     
       // Use our contract to retrieve and mark the rented containers
@@ -54,10 +53,12 @@ App = {
     return App.bindEvents();
   },
 
+  // Listen to the events on the web. If someone clicks button 'rent', initialize handleRent function
   bindEvents: function() {
     $(document).on('click', '.btn-rent', App.handleRent);
   },
 
+  //////////////////////////////////////////////
   markRented: function(users, account) {
     var rentInstance;
 
@@ -101,7 +102,7 @@ App = {
         rentInstance = instance;
 
         // Execute rent as a transaction by sending account
-        return rentInstance.rent(containerId, {from: account});
+        return rentInstance.rentContainer(containerId, {from: account});
       }).then(function(result) {
         return App.markRented();
       }).catch(function(err) {
@@ -110,7 +111,12 @@ App = {
       
     });
     
-  }
+  },
+
+  // handleSubmission: function(event) {
+  //   // a function for receiving containe information in the front-end
+  // }
+
 
 };
 
