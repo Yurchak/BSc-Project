@@ -1,0 +1,146 @@
+[
+  {
+    "id": 0,
+    "serial": "MSCZ0656513",
+    "type": "Dry storage",
+    "picture": "images/dry.jpg",
+    "location": "Singapore",
+    "owner": "0x2FC596B7a7987c65E62A0eF670551e2cad7bDA",
+    "user": "0x2FC596B7a7987c65E62A0eF670551e2cad7bDA"
+  },
+  {
+    "id": 1,
+    "serial": "TRHU0869776",
+    "type": "Dry storage",
+    "picture": "images/dry.jpg",
+    "location": "Dubai",
+    "owner": "0xddDfa5cfabAb333A1cEBcbc2afeB3Ae8e4A6a2",
+    "user": "0xddDfa5cfabAb333A1cEBcbc2afeB3Ae8e4A6a2"
+  },
+  {
+    "id": 2,
+    "serial": "MCIU0818463",
+    "type": "Flat rack",
+    "picture": "images/flatRack.jpg",
+    "location": "Singapore",
+    "owner": "0x43DCfc73E84dbcD6Fe0110bfb61fBf8b17CB3B",
+    "user": "0x43DCfc73E84dbcD6Fe0110bfb61fBf8b17CB3B"
+  },
+  {
+    "id": 3,
+    "serial": "MSCJ0422999",
+    "type": "Refrigerated",
+    "picture": "images/reefer.jpg",
+    "location": "Dubai",
+    "owner": "0x332bDdEC4Ab1375b9cE9C2b4c3DA5A0A0FFcC6",
+    "user": "0x332bDdEC4Ab1375b9cE9C2b4c3DA5A0A0FFcC6"
+  },
+  {
+    "id": 4,
+    "serial": "TRHZ0677036",
+    "type": "Dry storage",
+    "picture": "images/dry.jpg",
+    "location": "Los Angeles",
+    "owner": "0x8e2fa9cB7c4Eac96cE271aF0041D9091ED2c24",
+    "user": "0x8e2fa9cB7c4Eac96cE271aF0041D9091ED2c24"
+  },
+  {
+    "id": 5,
+    "serial": "MSCU0741709",
+    "type": "Dry storage",
+    "picture": "images/dry.jpg",
+    "location": "Shanghai",
+    "owner": "0xE71b191D5D7B7f240D9ae4AAA8df6b5C1b1983",
+    "user": "0xE71b191D5D7B7f240D9ae4AAA8df6b5C1b1983"
+  },
+  {
+    "id": 6,
+    "serial": "MCIU0992454",
+    "type": "Dry storage",
+    "picture": "images/dry.jpg",
+    "location": "Rotterdam",
+    "owner": "0x332bDdEC4Ab1375b9cE9C2b4c3DA5A0A0FFcC6",
+    "user": "0x332bDdEC4Ab1375b9cE9C2b4c3DA5A0A0FFcC6"
+  },
+  {
+    "id": 7,
+    "serial": "TRHU0998496",
+    "type": "Dry storage",
+    "picture": "images/dry.jpg",
+    "location": "Rotterdam",
+    "owner": "0x2FC596B7a7987c65E62A0eF670551e2cad7bDA",
+    "user": "0x2FC596B7a7987c65E62A0eF670551e2cad7bDA"
+  },
+  {
+    "id": 8,
+    "serial": "TRHU0360710",
+    "type": "Dry storage",
+    "picture": "images/dry.jpg",
+    "location": "Singapore",
+    "owner": "0x5d96BfAe1EbC56331bbbed465ab096eF5edfEB",
+    "user": "0x5d96BfAe1EbC56331bbbed465ab096eF5edfEB"
+  },
+  {
+    "id": 9,
+    "serial": "STMZ0857475",
+    "type": "Dry storage",
+    "picture": "images/dry.jpg",
+    "location": "Mumbai",
+    "owner": "0x5d96BfAe1EbC56331bbbed465ab096eF5edfEB",
+    "user": "0x5d96BfAe1EbC56331bbbed465ab096eF5edfEB"
+  },
+  {
+    "id": 10,
+    "serial": "MSCU0906645",
+    "type": "Dry storage",
+    "picture": "images/dry.jpg",
+    "location": "Shanghai",
+    "owner": "0x5b9df6D15Af2efEe1B5B32b44dF5FCBC4befb3",
+    "user": "0x5b9df6D15Af2efEe1B5B32b44dF5FCBC4befb3"
+  },
+  {
+    "id": 11,
+    "serial": "TRHU0923429",
+    "type": "Dry storage",
+    "picture": "images/dry.jpg",
+    "location": "Dubai",
+    "owner": "0xE71b191D5D7B7f240D9ae4AAA8df6b5C1b1983",
+    "user": "0xE71b191D5D7B7f240D9ae4AAA8df6b5C1b1983"
+  },
+  {
+    "id": 12,
+    "serial": "TRHU0750283",
+    "type": "Dry storage",
+    "picture": "images/dry.jpg",
+    "location": "Shanghai",
+    "owner": "0x79c5Be1dBeABC4324eEedB2E7f864Edfa3B73a",
+    "user": "0x79c5Be1dBeABC4324eEedB2E7f864Edfa3B73a"
+  },
+  {
+    "id": 13,
+    "serial": "MSCU0378569",
+    "type": "Dry storage",
+    "picture": "images/dry.jpg",
+    "location": "Singapore",
+    "owner": "0x5d96BfAe1EbC56331bbbed465ab096eF5edfEB",
+    "user": "0x5d96BfAe1EbC56331bbbed465ab096eF5edfEB"
+  },
+  {
+    "id": 14,
+    "serial": "MSCU0656253",
+    "type": "Dry storage",
+    "picture": "images/dry.jpg",
+    "location": "Shanghai",
+    "owner": "0x43DCfc73E84dbcD6Fe0110bfb61fBf8b17CB3B",
+    "user": "0x43DCfc73E84dbcD6Fe0110bfb61fBf8b17CB3B"
+  },
+  {
+    "id": 15,
+    "serial": "CEOU0911148",
+    "type": "Dry storage",
+    "picture": "images/dry.jpg",
+    "location": "New York",
+    "owner": "0x332bDdEC4Ab1375b9cE9C2b4c3DA5A0A0FFcC6",
+    "user": "0x332bDdEC4Ab1375b9cE9C2b4c3DA5A0A0FFcC6"
+  }
+]
