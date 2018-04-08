@@ -113,10 +113,6 @@ App = {
     
   },
 
-  // handleSubmission: function(event) {
-  //   // a function for receiving containe information in the front-end
-  // }
-
 
 };
 
