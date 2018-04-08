@@ -1,26 +1,46 @@
+
+
+whitelistedOwners = [];
+blacklistedOwners = [];
+//blacklistedOwners.push("0x2FC596B7a7987c65E62A0eF670551e2cad7bDA");
+//blacklistedOwners.push("0x332bDdEC4Ab1375b9cE9C2b4c3DA5A0A0FFcC6");
+
+desiredTypes = [];
+desiredTypes.push('Dry storage');
+desiredTypes.push('Flat rack');
+desiredTypes.push('Refrigerated');
+
+
 App = {
-  web3Provider: null,
-  contracts: {},
+    web3Provider: null,
+    contracts: {},
+  
+    init: function() {
+      // Load containers.
+      $.getJSON('../containers.json', function(data) {
+        var containerRow = $('#containerRow');
+        var containerTemplate = $('#containerTemplate');
 
-  init: function() {
-    // Load containers.
-    $.getJSON('../containers.json', function(data) {
-      var containerRow = $('#containerRow');
-      var containerTemplate = $('#containerTemplate');
+        for (i = 0; i < data.length; i ++) {
+          //data = data.sort(function(a,b) {return parseFloat()})
+            if (desiredTypes.includes(data[i].type) === true
+            && blacklistedOwners.includes(data[i].owner) !== true) {
+                containerTemplate.find('.panel-title').text(data[i].serial);
+                containerTemplate.find('img').attr('src', data[i].picture);
+                containerTemplate.find('.container-type').text(data[i].type);
+                containerTemplate.find('.container-location').text(data[i].location);
+                containerTemplate.find('.btn-rent').attr('data-id', data[i].id);
+        
+                containerRow.append(containerTemplate.html())
+            }
+            ;
+        }
+      });
+  
+      return App.initWeb3();
+    },
 
-      for (i = 0; i < data.length; i ++) {
-        containerTemplate.find('.panel-title').text(data[i].serial);
-        containerTemplate.find('img').attr('src', data[i].picture);
-        containerTemplate.find('.container-type').text(data[i].type);
-        containerTemplate.find('.container-location').text(data[i].location);
-        containerTemplate.find('.btn-rent').attr('data-id', data[i].id);
 
-        containerRow.append(containerTemplate.html());
-      }
-    });
-
-    return App.initWeb3();
-  },
 
   initWeb3: function() {
 
