@@ -19,7 +19,7 @@ contract Main {
         user.name = _name;
         user.inventory = _inventory;
 
-        userList.push(_address) -1; 
+        userList.push(_address) - 1; 
     }
 
     // Retrieve list of all users
