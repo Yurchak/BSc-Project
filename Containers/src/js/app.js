@@ -1,5 +1,3 @@
-
-
 whitelistedOwners = [];
 blacklistedOwners = [];
 //blacklistedOwners.push("0x2FC596B7a7987c65E62A0eF670551e2cad7bDA");
@@ -132,11 +130,6 @@ App = {
     });
     
   },
-
-  // handleSubmission: function(event) {
-  //   // a function for receiving containe information in the front-end
-  // }
-
 
 };
 
