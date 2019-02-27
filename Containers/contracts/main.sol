@@ -1,8 +1,9 @@
-pragma solidity ^0.4.2;
+pragma solidity ^0.4.0;
+
 
 contract Main {
 
-    // System user object
+    // Platform user object
     struct User {
         string name;
         uint inventory;
@@ -13,13 +14,10 @@ contract Main {
 
     // Create a new user
     function createUser(address _address, string _name, uint _inventory) public {
-
-        var user = users[_address];
-
-        user.name = _name;
-        user.inventory = _inventory;
-
-        userList.push(_address) - 1; 
+        users[_address].name = _name;
+        users[_address].inventory = _inventory;
+    
+        userList.push(_address) - 1;
     }
 
     // Retrieve list of all users
@@ -27,28 +25,57 @@ contract Main {
         return userList;
     }
 
+    function getUserByAddress(address _address) view public returns (string Name, uint Inventory) {
+        return (users[_address].name, users[_address].inventory);
+    }
+
+    // ----------------------------------------------------------------------------------------------
+
     // Container unit object
     struct Unit {
-        uint uID; // unique ID of a container
         address owner; // container owner
         address renter; // container renter
-        bytes32 serial; // container serial number
-        bytes32 location; // container location
-        bytes32 category; // container type (i.e. reefer)
+        string serial; // container serial number
+        string location; // container location
+        string category; // container type (i.e. reefer)
         bool availability;  // if true, the container is available
     }
 
-    mapping(bytes32 => Unit) public units; // map a unique id for each Unit object
-    bytes32[] public unitList; // enumerate the keys to the mapping
+    mapping(uint => Unit) units; // map a unique id for each Unit object
+    uint[] public unitList; // enumerate the keys to the mapping
 
-    // Retrieve list of all units
-    function getAllUnits() public view returns (bytes32[]) {
+    //Import unit with all its parameters
+
+    function importUnit(
+        address _owner,
+        // address _renter, 
+        string _serial, string _location, string _category, bool _availability) public {
+        uint _id = unitList.length;
+        units[_id].owner = _owner;
+        // units[_id].renter = _renter;
+        units[_id].serial = _serial;
+        units[_id].location = _location;
+        units[_id].category = _category;
+        units[_id].availability = _availability;
+
+        unitList.push(_id); 
+    }    
+
+    //Retrieve list of all units
+    function getAllUnits() public view returns (uint[]) {
         return unitList;
     }
 
     // Retrieve a specific unit by id
-    function getUnit(bytes32 _id) view public returns (uint, address, address, bytes32, bytes32, bytes32, bool) {
-        return (units[_id].uID, units[_id].owner, units[_id].renter, units[_id].serial, units[_id].location, units[_id].category, units[_id].availability);
+    function getUnitByID(uint _id) view public returns (address Owner, address Renter, string Serial_Number, string Location, string Category, bool Availability) {
+        return (units[_id].owner, units[_id].renter, units[_id].serial, units[_id].location, units[_id].category, units[_id].availability);
     }
 
+// Change owner
+    function handoverUnit(uint _id, address _renter) public {
+        units[_id].renter = _renter;
+        //units[_id].availability = false;
+        users[_renter].inventory += 1;
+        users[units[_id].owner].inventory -= 1;
+    }
 }
